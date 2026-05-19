@@ -1,0 +1,88 @@
+---
+
+## CONTRIBUTING.md
+
+# Contributing
+
+Thank you for helping improve this project.
+
+## Branching model
+
+This repository uses a simple Git flow:
+
+- `develop` is the active development branch
+- `main` is reserved for production-ready code later
+- feature branches should be created from `develop`
+
+Examples:
+
+- `feature/add-product-module`
+- `feature/health-endpoints`
+- `fix/validation-response-shape`
+- `chore/update-ci-workflow`
+- `bug/transaction invalid bug`
+
+## Recommended workflow
+
+1. create a branch from `develop`
+2. make your changes
+3. run the required checks locally
+4. push to your feature branch
+5. open a pull request into `develop`
+6. merge only after CI passes and review is complete
+
+## Local checks
+
+Before opening a pull request, run:
+
+npm run lint
+npm run build
+npm test
+npm run test:e2e
+
+## If schema or Prisma client changed, also run:
+
+npm run prisma:validate
+npm run prisma:generate
+
+### Code standards
+
+## Please follow the existing architecture and conventions:
+
+- keep TypeScript strict
+- use the shared validation pipe
+- use the shared API exception format
+- use the shared logger for structured logs
+- keep modules focused and modular
+- keep Prisma models domain-organized
+- avoid ad hoc patterns when a shared pattern already exists
+
+## Environment and secrets
+
+- do not commit .env files
+- do not commit production secrets
+- use .env.example as the local setup reference
+- use the test database for e2e runs
+
+## Pull request expectations
+
+# A good pull request should:
+
+- explain what changed and why
+- keep the scope focused
+- include tests when behavior changes
+- pass CI before merge
+- avoid unrelated formatting-only changes unless intentionally included
+
+## Notes for future production workflow
+
+# When the project reaches production readiness:
+
+- develop will remain the integration branch
+- main will be the production branch
+- urgent fixes may go directly into a hotfix branch and then be merged back
+
+### Questions
+
+- If a convention is unclear, follow the existing codebase patterns first.
+- If a new pattern is needed, keep it consistent with the existing architecture and document it.
