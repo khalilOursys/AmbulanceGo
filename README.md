@@ -1,4 +1,4 @@
-# AmbulanceGo## Available scripts
+## Available scripts
 
 ### Development
 npm run dev

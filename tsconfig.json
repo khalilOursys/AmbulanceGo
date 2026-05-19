@@ -9,6 +9,9 @@
 
     "strict": true,
     "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
 
     "experimentalDecorators": true,
@@ -16,6 +19,15 @@
 
     "esModuleInterop": true,
     "resolveJsonModule": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["./*"],
+      "@modules/*": ["modules/*"],
+      "@common/*": ["common/*"],
+      "@config/*": ["config/*"],
+      "@infra/*": ["infrastructure/*"]
+    },
 
     "types": ["node"]
   },
