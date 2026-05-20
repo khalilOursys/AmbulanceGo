@@ -8,14 +8,11 @@
     "start": "node dist/main",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main",
-
     "lint": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-
     "prisma:generate": "prisma generate",
     "prisma:migrate:dev": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
@@ -36,6 +33,12 @@
   "devDependencies": {
     "@nestjs/cli": "^11.0.21",
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.4",
+    "@typescript-eslint/parser": "^8.59.4",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.3",
     "prisma": "^7.8.0",
     "typescript": "^5.5.0"
   }
