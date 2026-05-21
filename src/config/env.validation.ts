@@ -1,13 +1,20 @@
 import { plainToInstance } from 'class-transformer';
-import { IsString, validateSync } from 'class-validator';
 
-export class EnvVars {
+import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
+
+class EnvironmentVariables {
+  @IsEnum(['development', 'test', 'production'])
+  NODE_ENV!: string;
+
+  @IsNumber()
+  PORT!: number;
+
   @IsString()
   DATABASE_URL!: string;
 }
 
 export function validate(config: Record<string, unknown>) {
-  const validatedConfig = plainToInstance(EnvVars, config, {
+  const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   });
 
@@ -16,7 +23,7 @@ export function validate(config: Record<string, unknown>) {
   });
 
   if (errors.length > 0) {
-    throw new Error(`Config validation error: ${errors.toString()}`);
+    throw new Error(errors.toString());
   }
 
   return validatedConfig;
