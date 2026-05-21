@@ -8,6 +8,7 @@ import databaseConfig from '@config/database.config';
 import { validate } from '@config/env.validation';
 
 import { HealthModule } from '@modules/health/health.module';
+import { PrismaModule } from '@infra/prisma/prisma.module';
 
 @Module({
   imports: [
@@ -20,6 +21,8 @@ import { HealthModule } from '@modules/health/health.module';
 
       envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, '.env'],
     }),
+
+    PrismaModule,
 
     HealthModule,
   ],
