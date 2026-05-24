@@ -1,35 +1,40 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ES2022",
-    "lib": ["ES2022"],
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
 
-    "rootDir": "./src",
+    "target": "ES2023",
+
+    "sourceMap": true,
+
     "outDir": "./dist",
 
+    "baseUrl": "./",
+
+    "incremental": true,
+
     "strict": true,
+
     "noImplicitAny": true,
+
     "noUncheckedIndexedAccess": true,
+
     "exactOptionalPropertyTypes": true,
+
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
 
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "types": ["node", "jest"],
 
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-
-    "baseUrl": "./src",
     "paths": {
-      "@app/*": ["./*"],
-      "@modules/*": ["modules/*"],
-      "@common/*": ["common/*"],
-      "@config/*": ["config/*"],
-      "@infra/*": ["infrastructure/*"]
-    },
-
-    "types": ["node"]
-  },
-  "include": ["src/**/*"]
+      "@app/*": ["src/*"],
+      "@modules/*": ["src/modules/*"],
+      "@common/*": ["src/common/*"],
+      "@config/*": ["src/config/*"],
+      "@infra/*": ["src/infrastructure/*"]
+    }
+  }
 }
