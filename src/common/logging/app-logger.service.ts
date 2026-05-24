@@ -20,15 +20,24 @@ export class AppLoggerService extends Logger {
     return clone;
   }
 
+  private format(level: string, message: LogData | string, context?: string) {
+    return {
+      timestamp: new Date().toISOString(),
+      level,
+      message: this.sanitize(message),
+      context,
+    };
+  }
+
   log(message: LogData | string, context?: string) {
-    super.log(this.sanitize(message), context);
+    super.log(this.format('log', message, context), context);
   }
 
   error(message: LogData | string, trace?: string, context?: string) {
-    super.error(this.sanitize(message), trace, context);
+    super.error(this.format('error', message, context), trace, context);
   }
 
   warn(message: LogData | string, context?: string) {
-    super.warn(this.sanitize(message), context);
+    super.warn(this.format('warn', message, context), context);
   }
 }
